@@ -1,3 +1,9 @@
+/* eslint-disable radix */
+/* eslint-disable operator-assignment */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-unused-vars */
+/* eslint-disable eqeqeq */
 /* *************************************************************************************************
  *                                                                                                *
  * Plese read the following tutorial before implementing tasks:                                   *
@@ -27,8 +33,14 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  if (num % 5 == 0) {
+    if (num % 3 == 0) {
+      return 'FizzBuzz';
+    } return 'Buzz';
+  } if (num % 3 == 0) {
+    return 'Fizz';
+  } return num;
 }
 
 
@@ -43,8 +55,11 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  function factorial(num) {
+    return (num != 1) ? num * factorial(num - 1) : 1;
+  }
+  return factorial(n);
 }
 
 
@@ -60,8 +75,13 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  let sum = 0;
+  for (let i = 0; n1 <= n2; i++) {
+    sum += n1;
+    n1++;
+  }
+  return sum;
 }
 
 
@@ -80,8 +100,11 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  if (a + b > c && a + c > b && b + c > a) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -208,8 +231,13 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+
+function reverseString(str) {
+  const arrChars = [];
+  for (let i = 0; i < str.length; i++) {
+    arrChars.push(str[i]);
+  }
+  return arrChars.reverse().join('');
 }
 
 
@@ -225,10 +253,14 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  let result = '';
+  while (num > 0) {
+    result = result + (num % 10);
+    num = parseInt(num / 10);
+  }
+  return result;
 }
-
 
 /**
  * Validates the CCN (credit card number) and return true if CCN is valid
@@ -319,8 +351,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
